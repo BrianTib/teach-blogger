@@ -1,14 +1,8 @@
-const Sequelize = require('sequelize');
-require('dotenv').config();
+const User = require('./User');
+const Post = require('./Post');
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: 'localhost',
-    dialect: 'postgres'
-  }
-);
+// Setup the association between a user and a post
+User.hasMany(Post);
+Post.belongsTo(User);
 
-module.exports = sequelize;
+module.exports = { User, Post };

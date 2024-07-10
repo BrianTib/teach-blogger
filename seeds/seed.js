@@ -9,10 +9,9 @@ const seedDatabase = async () => {
   console.log("----------- SEEDING CONNECTED TO DATABASE -----------");
   
   await User.bulkCreate(userSeedData, { individualHooks: true });
-  console.log("----------- SEEDING SEEDED USERS -----------");
+  console.log("----------- DONE SEEDING USERS -----------");
   await Post.bulkCreate(postSeedData);
-  console.log("----------- SEEDING SEEDED POSTS -----------");
-  console.log("----------- SEEDING COMPLETED -----------");
+  console.log("----------- DONE SEEDING POSTS -----------", "\n----------- SEEDING COMPLETED -----------");
   process.exit(0);
 };
 

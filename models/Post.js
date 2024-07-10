@@ -13,6 +13,7 @@ Post.init(
     },
     author: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         unique: false,
         references: {
             model: 'user',
@@ -21,11 +22,17 @@ Post.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     content: {
-        type: DataTypes.TEXT,
-        allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     }
   },
   {
@@ -33,6 +40,10 @@ Post.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'post',
+    timestamps: true,
+    // Keep track of when the post was created and updated
+    createdAt: true,
+    updatedAt: true
   }
 );
 

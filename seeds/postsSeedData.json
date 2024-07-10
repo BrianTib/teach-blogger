@@ -1,0 +1,12 @@
+[
+    {
+        "author": 1,
+        "title": "How to make a blog",
+        "content": "This is a blog post about how to make a blog"
+    },
+    {
+        "author": 1,
+        "title": "Post 2",
+        "content": "This is the second post"
+    }
+]

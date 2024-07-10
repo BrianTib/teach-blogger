@@ -1,0 +1,10 @@
+[
+    {
+        "username": "Admin",
+        "password": "$SuperAdmin123"
+    },
+    {
+        "username": "JohnDoe",
+        "password": "$JohnDoe123"
+    }
+]

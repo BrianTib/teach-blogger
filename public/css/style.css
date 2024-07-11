@@ -2,15 +2,15 @@
   --primary: #d9ead3;
   --secondary: #231010;
   --tertiary: #a7a7a7;
-  --quatrinary: #6c6b67;
-  --light: #e3e4e3;
-  --dark: #182c23;
-  --error: rgb(228, 46, 1);
-  --border-radius: 0.3rem;
 }
 
-* {
-  color: var(--primary);
+*,
+*::before,
+*::after {
+  color: var(--secondary);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -18,23 +18,37 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  justify-content: flex-start;
   background-color: var(--primary);
-  color: var(--dark);
 }
 
 nav {
   background-color: var(--secondary);
-  padding: 2em;
+  padding: 2em 4em;
+  gap: 1em;
   display: flex;
   flex-direction: column;
 }
 
+input:focus,
+input:active {
+  outline: none;
+  padding-inline: 0.5em;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* NAVBAR */
 nav ul {
   display: flex;
   list-style: none;
   gap: 4em;
   font-size: 1.25em;
+}
+
+nav li {
+  color: var(--primary);
 }
 
 nav a, nav button {
@@ -44,7 +58,6 @@ nav a, nav button {
 nav header {
   width: max-content;
   padding: 10px 0.5em;
-  margin-left: 40px;
   color: var(--secondary);
   font-weight: 800;
   font-size: 2em;
@@ -53,9 +66,8 @@ nav header {
   box-shadow: 8px 5px 0px var(--tertiary);
 }
 
-a:hover {
+a {
   text-decoration: none;
-  color: inherit;
 }
 
 a:visited {
@@ -66,12 +78,60 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  margin-inline: 4em;
+  margin-top: 2em;
 }
 
-aside {
-  flex: 0;
-  background-color: var(--tertiary);
-  padding: 80px;
-  text-align: left;
-  color: var(--light);
+/* LOGIN */
+.login-form-container {
+  width: 75%;
+  border: solid 2px var(--secondary);
+  height: max-content;
+  margin-inline: auto;
+  padding-bottom: 1.5em;
+}
+
+.login-form-container > h2 {
+  background: var(--secondary);
+  padding-inline: 1em;
+  padding-block: 0.5em;
+  color: var(--primary);
+}
+
+.login-form-container > form {
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.login-form-container > form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.login-form-container > form > div > label {
+  font-size: 1.25em;
+}
+
+.login-form-container > form > div > input {
+  border: none;
+  height: 2em;
+  font-size: 1.25em;
+}
+
+.login-form-container > form > div > button[type="submit"] {
+  height: 2em;
+  border: none;
+  background: var(--tertiary);
+  color: white;
+  font-size: 1.25em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.login-form-container > a {
+  font-size: 1.25em;
+  padding-left: 2em;
 }

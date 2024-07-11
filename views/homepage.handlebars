@@ -1,6 +1,6 @@
 <!-- Display each blog !-->
-<section class="flex-row justify-center">
-    {{#each posts as |blog|}}
-    {{> blog-card}}
+<ul id="post-preview-list">
+    {{#each posts as |post|}}
+        <li>{{> blog-preview}}</li>
     {{/each}}
-</section>
+</ul>

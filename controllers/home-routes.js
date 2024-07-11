@@ -1,9 +1,18 @@
 const router = require('express').Router();
 const { User, Post } = require('../models');
 
-// GET all galleries for homepage
 router.get('/', async (req, res) => {
-  res.render('homepage', { logged_in: req.session.logged_in });
+  try {
+    const postsData = await Post.findAll({
+      include: [{ model: User }],
+    });
+
+    const posts = postsData.map((post) => post.get({ plain: true }));
+
+    res.render('homepage', { posts, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/login', (req, res) => {

@@ -2,11 +2,12 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const helpers = require('./utils/helpers');
 require('dotenv').config();
 
 // Initializes Sequelize with session store
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const { strict } = require('assert');
 const routes = require('./controllers');

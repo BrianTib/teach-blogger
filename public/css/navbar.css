@@ -22,6 +22,12 @@ nav a, nav button {
     color: var(--primary);
 }
 
+nav button {
+    background: none;
+    border: none;
+    font-size: inherit;
+}
+
 nav header {
     width: max-content;
     padding: 10px 0.5em;

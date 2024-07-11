@@ -46,6 +46,10 @@ main {
   margin-top: 2em;
 }
 
+ul {
+  list-style: none;
+}
+
 /* LOGIN */
 .login-form-container {
   width: 75%;
@@ -99,4 +103,42 @@ main {
 .login-form-container > a {
   font-size: 1.25em;
   padding-left: 2em;
+}
+
+/* BLOGS */
+#post-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+.post-preview {
+  border: solid 2px var(--secondary);
+  width: 100%;
+  min-height: 150px;
+}
+
+.post-preview .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 0.85em;
+  padding: 0.5em 1em;
+}
+
+.post-preview .header > h2,
+.post-preview .header > h3 {
+  color: var(--primary);
+}
+
+.post-preview .header > h3 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.post-preview .content {
+  padding: 0.75em;
 }

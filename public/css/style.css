@@ -22,7 +22,9 @@ body {
 }
 
 input:focus,
-input:active {
+textarea:focus,
+input:active,
+textarea:active {
   outline: none;
 }
 
@@ -218,11 +220,18 @@ ul {
 }
 
 #new-post-form > .form-group > input {
-  height: 2.5em;
+  height: 2.25em;
+  font-size: 1em;
 }
 
 #new-post-form > .form-group > textarea {
   height: 4em;
+  padding-block: 0.5em;
+}
+
+#new-post-form > .form-group > input,
+#new-post-form > .form-group > textarea {
+  padding-inline: 0.5em;
 }
 
 #new-post-form > button[type="submit"] {

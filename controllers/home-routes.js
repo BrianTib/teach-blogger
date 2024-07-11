@@ -40,16 +40,13 @@ router.get('/dashboard', async (req, res) => {
 
   try {
     const postsData = await Post.findAll({
-      // where: { author: req.session.user_id },
-      where: { author: 1 },
+      where: { author: req.session.user_id },
       attributes: { exclude: ['user'] },
     });
 
     const posts = postsData.map((post) => post.get({ plain: true }));
 
-    console.log(posts);
-
-    res.render('dashboard', { posts });
+    res.render('dashboard', { posts, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -61,7 +58,7 @@ router.get('/new-post', async (req, res) => {
     return;
   }
 
-  res.render('new-post');
+  res.render('new-post', { logged_in: req.session.logged_in });
 });
 
 module.exports = router;

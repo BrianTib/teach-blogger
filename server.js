@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3001;
 const sessionConfiguration = {
     secret: process.env.SESSION_SECRET,
     cookie: {
-        maxAge: 60 * 60 * 1000,
+        maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
         secure: false,
         sameSite: 'strict',
@@ -29,14 +29,16 @@ const sessionConfiguration = {
     // Sets up session store
     store: new SequelizeStore({
         db: sequelize,
-    }),
+    })
 };
 
-app.use(session(sessionConfiguration));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(sessionConfiguration));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

@@ -21,49 +21,13 @@ body {
   background-color: var(--primary);
 }
 
-nav {
-  background-color: var(--secondary);
-  padding: 2em 4em;
-  gap: 1em;
-  display: flex;
-  flex-direction: column;
-}
-
 input:focus,
 input:active {
   outline: none;
-  padding-inline: 0.5em;
 }
 
 button:hover {
   cursor: pointer;
-}
-
-/* NAVBAR */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 4em;
-  font-size: 1.25em;
-}
-
-nav li {
-  color: var(--primary);
-}
-
-nav a, nav button {
-  color: var(--primary);
-}
-
-nav header {
-  width: max-content;
-  padding: 10px 0.5em;
-  color: var(--secondary);
-  font-weight: 800;
-  font-size: 2em;
-  border-radius: 15px;
-  background: var(--primary);
-  box-shadow: 8px 5px 0px var(--tertiary);
 }
 
 a {
@@ -119,6 +83,7 @@ main {
   border: none;
   height: 2em;
   font-size: 1.25em;
+  padding-inline: 0.5em;
 }
 
 .login-form-container > form > div > button[type="submit"] {

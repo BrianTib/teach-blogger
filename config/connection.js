@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+// We require this here also as well as on server.js in case we are just seeding the database
 require('dotenv').config();
 
 const sequelize = new Sequelize(

@@ -32,12 +32,36 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/');
     return;
   }
-  res.render('dashboard', { post });
+
+  try {
+    const postsData = await Post.findAll({
+      // where: { author: req.session.user_id },
+      where: { author: 1 },
+      attributes: { exclude: ['user'] },
+    });
+
+    const posts = postsData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
+
+    res.render('dashboard', { posts });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/new-post', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('new-post');
 });
 
 module.exports = router;

@@ -1,0 +1,8 @@
+<section id="dashboard">
+    <ul>
+        {{#each posts as |post|}}
+            {{> user-post}}
+        {{/each}}
+    </ul>
+    <a id="new-post" href="/new-post">+ New Post</a>
+</section>

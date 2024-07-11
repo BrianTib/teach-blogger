@@ -1,5 +1,6 @@
 const User = require('./User');
 const Post = require('./Post');
+const Comment = require('./Comment');
 
 // Setup the association between a user and a post
 User.hasMany(Post, {
@@ -11,4 +12,14 @@ Post.belongsTo(User, {
     onDelete: 'CASCADE'
 });
 
-module.exports = { User, Post };
+// Setup the relationship between a commend and a post
+Post.hasMany(Comment, {
+  foreignKey: 'post_id'
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE'
+});
+
+module.exports = { User, Post, Comment };

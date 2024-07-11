@@ -142,3 +142,96 @@ ul {
 .post-preview .content {
   padding: 0.75em;
 }
+
+/* DASHBOARD */
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+#dashboard > #new-post {
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  display: flex;
+  font-size: 1.5em;
+  font-weight: bold;
+  height: 2em;
+  justify-content: center;
+  padding-inline: 1em;
+  width: fit-content;
+}
+
+#dashboard > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+#dashboard > ul a {
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 5px;
+  display: flex;
+  font-size: 1.25em;
+  justify-content: space-between;
+  padding: 0.75em 1em;
+}
+
+#dashboard > ul a > h4,
+#dashboard > ul a > h5 {
+  color: white;
+}
+
+/* NEW POST */
+#new-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  border: solid 2px var(--secondary);
+  padding-bottom: 20px;
+  height: max-content;
+}
+
+#new-post-form > h3 {
+  font-size: 1.5em;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 0.25em 1em;
+}
+
+#new-post-form > .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding-inline: 1em;
+}
+
+#new-post-form > .form-group > label {
+  font-size: 1.25em;
+}
+
+#new-post-form > .form-group > input {
+  height: 2.5em;
+}
+
+#new-post-form > .form-group > textarea {
+  height: 4em;
+}
+
+#new-post-form > button[type="submit"] {
+  background: var(--secondary);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.25em;
+  font-weight: bold;
+  height: 2em;
+  margin-inline: 1em;
+}

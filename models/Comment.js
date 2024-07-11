@@ -11,6 +11,15 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    post_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: false,
+        references: {
+            model: 'post',
+            key: 'id'
+        }
+    },
     author: {
         type: DataTypes.INTEGER,
         allowNull: false,

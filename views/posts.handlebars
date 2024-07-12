@@ -1,0 +1,27 @@
+<section class="blog-container" id="blog-container">
+    {{> blog-preview post}}
+
+    {{#if comments.length}}
+        <ul>
+            {{#each comments}}
+                <li>
+                    <h4>{{format_author_timestamp user createdAt}}</h4>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+
+    <form class="blog-form" id="new-comment-form">
+        <h3 class="header">
+            Add Comment
+        </h3>
+        <div class="form-group">
+            <label for="post-content">Comment</label>
+            <textarea id="post-content" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+    </form>
+</section>
+
+<script src="/js/comments.js" defer></script>

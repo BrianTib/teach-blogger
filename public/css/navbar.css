@@ -1,7 +1,7 @@
 /* NAVBAR */
 nav {
     background-color: var(--secondary);
-    padding: 2em 4em;
+    padding: 1em 2em;
     gap: 1em;
     display: flex;
     flex-direction: column;
@@ -37,4 +37,10 @@ nav header {
     border-radius: 15px;
     background: var(--primary);
     box-shadow: 8px 5px 0px var(--tertiary);
+}
+
+@media (min-width: 768) {
+    nav {
+        padding: 2em 4em;
+    }
 }

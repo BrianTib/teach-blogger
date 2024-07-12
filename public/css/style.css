@@ -44,7 +44,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  margin-inline: 4em;
+  margin-inline: 1em;
   margin-top: 2em;
 }
 
@@ -192,7 +192,7 @@ ul {
 }
 
 /* NEW POST */
-#new-post-form {
+.blog-form {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -202,40 +202,40 @@ ul {
   height: max-content;
 }
 
-#new-post-form > h3 {
-  font-size: 1.5em;
+.blog-form > h3 {
+  font-size: 1.3em;
   background: var(--secondary);
   color: var(--primary);
   padding: 0.25em 1em;
 }
 
-#new-post-form > .form-group {
+.blog-form > .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   padding-inline: 1em;
 }
 
-#new-post-form > .form-group > label {
+.blog-form > .form-group > label {
   font-size: 1.25em;
 }
 
-#new-post-form > .form-group > input {
+.blog-form > .form-group > input {
   height: 2.25em;
   font-size: 1em;
 }
 
-#new-post-form > .form-group > textarea {
+.blog-form > .form-group > textarea {
   height: 4em;
   padding-block: 0.5em;
 }
 
-#new-post-form > .form-group > input,
-#new-post-form > .form-group > textarea {
+.blog-form > .form-group > input,
+.blog-form > .form-group > textarea {
   padding-inline: 0.5em;
 }
 
-#new-post-form > button[type="submit"] {
+.blog-form > button[type="submit"] {
   background: var(--secondary);
   border: none;
   border-radius: 5px;
@@ -244,4 +244,18 @@ ul {
   font-weight: bold;
   height: 2em;
   margin-inline: 1em;
+}
+
+/* BLOG-SPECIFIC PAGE */
+#blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+@media (min-width: 768) {
+  main {
+    margin-inline: 4em;
+  }
 }

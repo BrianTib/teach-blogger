@@ -1,27 +1,32 @@
 <section class="blog-container" id="blog-container">
     {{> blog-preview post}}
 
-    {{#if comments.length}}
-        <ul>
-            {{#each comments}}
+    {{#if post.comments.length}}
+        <ul id="comments-list">
+            {{#each post.comments as |comment|}}
                 <li>
-                    <h4>{{format_author_timestamp user createdAt}}</h4>
-                    <p>{{content}}</p>
+                    <h3>Comment</h3>
+                    <div>
+                        <p>{{comment.content}}</p>
+                        <h4>— {{comment.user.username}}, {{format_date comment.createdAt}}</h4>
+                    </div>
                 </li>
             {{/each}}
         </ul>
     {{/if}}
 
-    <form class="blog-form" id="new-comment-form">
-        <h3 class="header">
-            Add Comment
-        </h3>
-        <div class="form-group">
-            <label for="post-content">Comment</label>
-            <textarea id="post-content"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Comment</button>
-    </form>
+    {{#if logged_in}}
+        <form class="blog-form" id="new-comment-form" data-id="{{post.id}}">
+            <h3 class="header">
+                Add Comment
+            </h3>
+            <div class="form-group">
+                <label for="post-content">Comment</label>
+                <textarea id="post-content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Comment</button>
+        </form>
+    {{/if}}
 </section>
 
 <script src="/js/comments.js" defer></script>

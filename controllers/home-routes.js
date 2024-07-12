@@ -84,11 +84,10 @@ router.get('/edit-post/:id', async (req, res) => {
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User }, { model: Comment }],
+      include: [{ model: User }, { model: Comment, include: [{ model: User }] }],
     });
-    const post = postData.get({ plain: true });
 
-    console.log(post);
+    const post = postData.get({ plain: true });
 
     res.render('posts', { post, logged_in: req.session.logged_in });
   } catch (err) {

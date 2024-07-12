@@ -235,7 +235,7 @@ ul {
   padding-inline: 0.5em;
 }
 
-.blog-form > button[type="submit"] {
+.blog-form > button {
   background: var(--secondary);
   border: none;
   border-radius: 5px;
@@ -252,6 +252,34 @@ ul {
   flex-direction: column;
   gap: 1em;
   width: 100%;
+}
+
+#blog-container > #comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+#blog-container > #comments-list > li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  border: solid 2px var(--secondary);
+}
+
+#blog-container > #comments-list > li > h3 {
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 0.25em 0.5em;
+}
+
+#blog-container > #comments-list > li > div {
+  padding: 0.25em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding-block: 1em;
 }
 
 @media (min-width: 768) {

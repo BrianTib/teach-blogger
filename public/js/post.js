@@ -24,6 +24,24 @@ if (newPostForm) {
 
 const editPostForm = document.getElementById('edit-post-form');
 if (editPostForm) {
+    editPostForm.querySelector('#delete-post-btn')
+        .addEventListener('click', async (event) => {
+            event.preventDefault();
+    
+            const id = editPostForm.getAttribute('data-id');
+            if (!id) { return; }
+    
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'DELETE',
+            });
+    
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Failed to delete post');
+            }
+        });
+
     editPostForm.addEventListener('submit', async (event) => {
         event.preventDefault();
     

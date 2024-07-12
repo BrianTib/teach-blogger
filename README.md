@@ -36,4 +36,5 @@ For additional questions contact me through [GitHub](https://github.com/brianTib
 ## Links 
 
 - (GitHub Repo)[https://github.com/BrianTib/teach-blogger]
-- (Render Deployment)[]
+There is indeed a typo on the url here :/
+- (Render Deployment)[https://teach-blogger.onrender.com/]

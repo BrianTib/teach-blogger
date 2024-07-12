@@ -14,11 +14,8 @@ router.post('/:post_id', async (req, res) => {
             author: req.session.user_id,
         });
 
-        console.log(newComment);
-
         res.status(200).json(newComment);
     } catch (err) {
-        console.log(err);
         res.status(400).json(err);
     }
 });

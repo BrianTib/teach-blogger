@@ -4,8 +4,7 @@ const bcrypt = require('bcrypt');
 
 class User extends Model {
     checkPassword(loginPw) {
-        console.log(loginPw, this.password);
-        return bcrypt.compareSync(loginPw, this.password);
+        return bcrypt.compare(loginPw, this.password);
     }
 }
 
@@ -50,10 +49,17 @@ User.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: '_user',
     defaultScope: {
         attributes: {
             exclude: ['password']
+        }
+    },
+    scopes: {
+        withPassword: {
+            attributes: { 
+                include: ['password']
+            }
         }
     },
     timestamps: true,

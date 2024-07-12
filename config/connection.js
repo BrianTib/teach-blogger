@@ -26,3 +26,4 @@ if (process.env.DB_URL) {
 }
 
 module.exports = sequelize;
+//postgresql://tech_blogger_user:nbHhIMcZVd7Vt8q4DvFs6H3GF7im2Q9x@dpg-cq89n1ss1f4s73chhllg-a.ohio-postgres.render.com/tech_blogger

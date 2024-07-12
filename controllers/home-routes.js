@@ -60,6 +60,27 @@ router.get('/new-post', async (req, res) => {
   res.render('new-post', { logged_in: req.session.logged_in });
 });
 
+router.get('/edit-post/:id', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    const post = postData.get({ plain: true });
+
+    if (post.author !== req.session.user_id) {
+      res.status(403).json({ message: 'You are not authorized to edit this post' });
+      return;
+    }
+
+    res.render('edit-post', { post, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {

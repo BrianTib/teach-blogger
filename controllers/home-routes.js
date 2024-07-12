@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -40,8 +40,7 @@ router.get('/dashboard', async (req, res) => {
 
   try {
     const postsData = await Post.findAll({
-      where: { author: req.session.user_id },
-      attributes: { exclude: ['user'] },
+      where: { author: req.session.user_id }
     });
 
     const posts = postsData.map((post) => post.get({ plain: true }));
@@ -59,6 +58,20 @@ router.get('/new-post', async (req, res) => {
   }
 
   res.render('new-post', { logged_in: req.session.logged_in });
+});
+
+router.get('/posts/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: User }, { model: Comment }],
+    });
+    const post = postData.get({ plain: true });
+
+    res.render('post', { post, logged_in: req.session.logged_in });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

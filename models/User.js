@@ -50,6 +50,11 @@ User.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
+    defaultScope: {
+        attributes: {
+            exclude: ['password']
+        }
+    },
     timestamps: true,
     // Keep track of when the post was created and updated
     createdAt: true

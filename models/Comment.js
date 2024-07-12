@@ -41,7 +41,7 @@ Comment.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'comment',
     timestamps: true,
     // Keep track of when the post was created and updated
     createdAt: true,

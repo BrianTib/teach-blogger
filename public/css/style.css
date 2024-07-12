@@ -119,6 +119,7 @@ ul {
   border: solid 2px var(--secondary);
   width: 100%;
   min-height: 150px;
+  cursor: pointer;
 }
 
 .post-preview .header {
